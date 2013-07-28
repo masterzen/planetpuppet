@@ -7,9 +7,9 @@
 	xmlns:atom="http://www.w3.org/2005/Atom"
 	xmlns="http://purl.org/rss/1.0/"
 >
-<channel rdf:about="<TMPL_VAR link ESCAPE="HTML">">
-	<title>{{ name }}></title>
-	<link>{{ link }}></link>
+<channel rdf:about="{{ link }}">
+	<title>{{ name }}</title>
+	<link>{{ link }}</link>
 	<description>{{ name }} - {{ link }}</description>
 	{% if pubsubhubbub_hub %}
 	<atom:link rel="hub" href="{{ pubsubhubbub_hub }}"/>
@@ -28,11 +28,11 @@
 </channel>
 
 {% for item in Items %}
-<item rdf:about="{{ item.id }}">
+<item rdf:about="{{ item.link }}">
 	<title>{{ item.channel_name }}{% if item.title %}: {{ title_plain }}{% endif %}</title>
 	<link>{{ item.link }}</link>
 	{% if item.content %}
-	<content:encoded>{{ item.content|safe }}</content:encoded>
+	<content:encoded>{{ item.content }}</content:encoded>
 	{% endif %}
 	<dc:date>{{ item.date_iso }}</dc:date>
 	{% if item.author_name %}

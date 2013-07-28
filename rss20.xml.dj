@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-
+<atom:link href="{{ link }}/rss20.xml" rel="self" type="application/rss+xml" />
 <channel>
 	<title>{{ name }}</title>
 	<link>{{ link }}</link>
@@ -19,7 +19,7 @@
 	<guid isPermaLink="{{ item.guid_isPermaLink }}">{{ item.id }}</guid>
 	<link>{{ item.link }}</link>
 	{% if item.content %}
-	<description>{{ item.content|safe }}</description>
+	<description>{{ item.content }}</description>
 	{% endif %}
 	<pubDate>{{ item.date_822 }}</pubDate>
 	{% if item.author_email %}

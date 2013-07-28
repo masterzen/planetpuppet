@@ -1,0 +1,15 @@
+
+.channels li {
+    font-size: 12px;
+    line-height: 20px;
+    list-style-type: none;
+}
+
+.entries h3 a, .entries h3 a:visited {
+    color: #333;
+    text-decoration: none;
+}
+
+.entries h3 a:hover {
+    color: #333;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="verify-v1" content="U8S2PCKf4gSuFS0oqOw0HiplmfdAh4PKgpteHe2ZlOg=" />
+
+    <title>{{ name }}</title>
+
+    <link rel="alternate" type="application/atom+xml" title="atom" href="/atom.xml" />
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/planetpuppet.css" rel="stylesheet">
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6968171-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="header">
+        <h2>{{ name }}</h2>
+        <p class="lead">Your source of <a href="https://puppetlabs.com/puppet/puppet-open-source/">Puppet</a> technical information</p>
+      </div>
+
+      <div class="body-content">
+
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="span9">
+            {% for item in Items %}
+            <div class="well entries">
+              {% if item.title %}<h3><a href="{{ item.link }}" title="Go to original content">{{ item.title|safe }}</a></h3>{% endif %}
+              <p class="muted"><small>{{ item.author }}, {{ item.date|timesince }}&nbsp;|&nbsp;Source:&nbsp;<a href="{{ item.channel_link }}">{{ item.channel_name }}</a></small></p>
+
+              {{ item.content|safe|truncatewords_html:100  }}
+
+              <p class="read-more"><a href="{{ item.link }}">[&nbsp;Read More&nbsp;]</a></p>
+          </div>
+          {% endfor %}
+          </div>
+          
+          <div class="span3">
+            <div class="channels">
+              <h4>People ({{ Channels|length }})</h4>
+              <ul>
+                {% for channel in Channels %}
+                <li><a href="{{ channel.url }}"><img src="img/feed-icon.png"/></a>&nbsp;<a href="{{ channel.link }}">{{ channel.name|safe }}</a></li>
+                {% endfor %}                
+              </ul>
+              <p><a href="/opml.xml"><img src="img/opml-icon.png"/>&nbsp;All feeds in OPML format</a></p>
+            </div>
+            <hr>
+            <div>
+              <h4>Want your blog here?</h4>
+              <p>That's easy, you just tweet to <a href="https://twitter.com/_masterzen_">@_masterzen_</a> your Puppet category/tag blog feed (atom or rss) url and I'll include it</p>
+            </div>
+            <hr>
+            <div>
+              <h4>Syndicate</h4>
+              <p><a href="http://feeds.feedburner.com/planetpuppet"><img src="img/feed-icon.png"/>&nbsp;Planet Puppet Feed</p>
+            </div>
+         </div>
+        </div>
+
+        <hr>
+
+        <footer>
+">Venus</a> and <a href="http://www.masterzen.fr">masterzen</a></p>
+        </footer>
+      </div>
+
+    </div> <!-- /container -->
+  </body>
+</html>

@@ -44,7 +44,7 @@
             {% for item in Items %}
             <div class="well entries">
               {% if item.title %}<h3><a href="{{ item.link }}" title="Go to original content">{{ item.title|safe }}</a></h3>{% endif %}
-              <p class="muted"><small>{{ item.author }}, {{ item.date|timesince }}&nbsp;|&nbsp;Source:&nbsp;<a href="{{ item.channel_link }}">{{ item.channel_name }}</a></small></p>
+              <p class="muted"><small>{{ item.author|default:"Anonymous" }}, {{ item.date|timesince }}&nbsp;|&nbsp;Source:&nbsp;<a href="{{ item.channel_link }}">{{ item.channel_name }}</a></small></p>
 
               {{ item.content|safe|truncatewords_html:100  }}
 

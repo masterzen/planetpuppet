@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name='generator' content='<%= Pluto.generator %>'>
+    <meta name="verify-v1" content="U8S2PCKf4gSuFS0oqOw0HiplmfdAh4PKgpteHe2ZlOg=" />
+
+    <title><%= site.name %></title>
+
+  <link rel="alternate" type="application/rss+xml" title="Planet Puppet (RSS)" href="rss20.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Planet Puppet (Atom)" href="atom.xml" />
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/planetpuppet.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="header">
+        <h2><%= site.name %></h2>
+        <p class="lead">Your source of <a href="https://www.puppet.com/community/open-source/open-source-puppet">Puppet</a> technical information</p>
+      </div>
+
+      <div class="body-content">
+
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="span9">
+          <%
+            items = site.items.latest.limit(24)
+            ItemCursor.new( items ).each do |item, new_date, new_feed|
+          %>
+          <% if new_date %>
+          <h2 class='new-date'>
+            <%= item.published.strftime('%A, %d. %B %Y') %>
+          </h2>
+          <% else %>
+            <hr class='item-seperator'>
+          <% end %>
+
+            <div class="well entries">
+              <% if item.title %><h3><a href="<%= item.url %>" title="Go to original content"><%= item.title %></a></h3><% end %>
+              <p class="muted"><small><%= time_ago_in_words(item.updated) %>&nbsp;|&nbsp;Source:&nbsp;<a href="<%= item.feed.link %>"><%= item.feed.title %></a></small></p>
+
+              <% if item.summary %>
+                <%= textify( item.summary )[0..400] %>
+              <% elsif item.content %>
+                <%= textify( item.content )[0..400] %>
+              <% else %>
+                -/-
+              <% end %>
+
+              <p class="read-more"><a href="<%= item.url %>">[&nbsp;Read More&nbsp;]</a></p>
+          </div>
+        <% end %>
+          </div>
+          
+          <div class="span3">
+            <div class="channels">
+              <h4>People (<%= site.feeds.length() %>)</h4>
+              <ul>
+              <% site.feeds.each do |feed| %>
+                <li>
+                  <%= link_to( image_tag('img/feed-icon.png'), feed.feed_url ) %>
+                  <%= link_to feed.title, feed.url %>
+                </li>
+              <% end %>
+              </ul>
+              <p><a href="/opml.xml"><img src="img/opml-icon.png"/>&nbsp;All feeds in OPML format</a></p>
+            </div>
+            <hr>
+            <div>
+              <h4>Want your blog here?</h4>
+              <p>That's easy, create a pull-request in <a href="https://github.com/masterzen/planetpuppet">Planet Puppet GitHub</a></p>
+            </div>
+            <hr>
+            <div>
+              <h4>Syndicate</h4>
+              <p><a href="https://feeds.feedburner.com/planetpuppet"><img src="img/feed-icon.png"/>&nbsp;Planet Puppet Feed</p>
+            </div>
+         </div>
+        </div>
+
+        <hr>
+
+        <footer>
+          <a href="http://www.masterzen.fr">masterzen</a></p>
+        </footer>
+      </div>
+
+    </div> <!-- /container -->
+  </body>
+</html>

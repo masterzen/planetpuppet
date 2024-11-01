@@ -1,0 +1,22 @@
+# pakman manifest
+
+
+index.html  index.html.erb
+atom.xml    atom.xml.erb
+rss20.xml   rss20.xml.erb
+opml.xml    opml.xml.erb
+
+img/feed-icon.png
+img/glyphicons-halflings-white.png
+img/glyphicons-halflings.png
+img/opml-icon.png
+
+css/bootstrap.css
+css/bootstrap-responsive.css
+css/bootstrap-responsive.min.css
+css/bootstrap.min.css
+css/planetpuppet.css
+
+js/bootstrap.js
+js/bootstrap.min.js
+js/planetpuppet.js

@@ -1,0 +1,29 @@
+
+.channels li {
+    font-size: 12px;
+    line-height: 20px;
+    list-style-type: none;
+}
+
+.entries h3 a, .entries h3 a:visited {
+    color: #333;
+    text-decoration: none;
+}
+
+.entries h3 a:hover {
+    color: #333;
+}
+
+.new-date {
+    border-bottom: 1px solid #9e9e9e;
+    border-top: 1px solid #9e9e9e;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+hr.item-seperator {
+    border: none;
+    background-color: #ccc;
+    color: #ccc;
+    height: 1px;
+}

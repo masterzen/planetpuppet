@@ -1,0 +1,31 @@
+require 'hoe'
+require './lib/pluto/feedfetcher/version.rb'
+
+Hoe.spec 'pluto-feedfetcher' do
+
+  self.version = PlutoFeedFetcher::VERSION
+
+  self.summary = "pluto-feedfetcher - fetch web feeds (w/ conditional HTTP get e.g. use etags, if-modified-since etc.)"
+  self.description = summary
+
+  self.urls    = { home: 'https://github.com/feedreader/pluto' }
+
+  self.author  = 'Gerald Bauer'
+  self.email   = 'gerald.bauer@gmail.com'
+
+  # switch extension to .markdown for gihub formatting
+  self.readme_file  = 'README.md'
+  self.history_file = 'CHANGELOG.md'
+
+  self.extra_deps = [
+    ['pluto-models',  '>= 1.5.4'],
+    ['fetcher',       '>= 0.4.5'],
+  ]
+
+  self.licenses = ['Public Domain']
+
+  self.spec_extras = {
+    required_ruby_version: '>= 2.2.2'
+  }
+
+end

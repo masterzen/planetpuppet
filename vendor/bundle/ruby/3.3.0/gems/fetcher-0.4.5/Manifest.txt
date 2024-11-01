@@ -1,0 +1,13 @@
+HISTORY.md
+Manifest.txt
+README.md
+Rakefile
+bin/fetch
+lib/fetcher.rb
+lib/fetcher/cli/opts.rb
+lib/fetcher/cli/runner.rb
+lib/fetcher/version.rb
+lib/fetcher/worker.rb
+test/helper.rb
+test/test_get.rb
+test/test_read.rb

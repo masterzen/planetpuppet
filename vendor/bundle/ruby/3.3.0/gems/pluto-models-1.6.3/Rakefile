@@ -1,0 +1,41 @@
+require 'hoe'
+require './lib/pluto/version.rb'
+
+Hoe.spec 'pluto-models' do
+
+  self.version = Pluto::VERSION
+
+  self.summary = "pluto-models - planet schema 'n' models for easy (re)use"
+  self.description = summary
+
+  self.urls    = { 'home': 'https://github.com/feedreader/pluto' }
+
+  self.author  = 'Gerald Bauer'
+  self.email   = 'wwwmake@googlegroups.com'
+
+  # switch extension to .markdown for gihub formatting
+  self.readme_file  = 'README.md'
+  self.history_file = 'CHANGELOG.md'
+
+  self.extra_deps = [
+    ['props',          '>= 1.2.0'],
+    ['logutils',       '>= 0.6.1'],
+    ['feedparser',     '>= 2.1.2'],
+    ['feedfilter',     '>= 1.1.1'],
+    ['date-formatter', '>= 0.1.1'],
+    ['textutils',      '>= 1.4.0'],
+    ['activerecord'],
+    ['logutils-activerecord', '>= 0.2.1'],
+    ['props-activerecord',    '>= 0.2.0'],
+    ['activityutils',         '>= 0.1.1'],
+    ['activerecord-utils',    '>= 0.4.0'],
+  ]
+
+
+  self.licenses = ['Public Domain']
+
+  self.spec_extras = {
+    required_ruby_version: '>= 2.2.2'
+  }
+
+end
